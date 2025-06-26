@@ -113,44 +113,93 @@ dotnet run
 
 ## 📡 API Endpoints Overview
 
-### 🔐 Auth
-| Method | Endpoint            | Description        |
-|--------|---------------------|--------------------|
-| POST   | /api/auth/login     | Login and get JWT  |
+## 📡 API Endpoints – Actual Controller Methods
 
-### 🏢 Departments
-| Method | Endpoint                | Description             |
-|--------|-------------------------|-------------------------|
-| GET    | /api/departments        | Get all departments     |
-| GET    | /api/departments/{id}   | Get department by ID    |
-| POST   | /api/departments        | Create new department   |
-| PUT    | /api/departments/{id}   | Update department       |
-| DELETE | /api/departments/{id}   | Delete department       |
+### 🔐 AuthController
 
-### 👨‍💼 Employees
-| Method | Endpoint                | Description             |
-|--------|-------------------------|-------------------------|
-| GET    | /api/employees          | Get all employees       |
-| GET    | /api/employees/{id}     | Get employee by ID      |
-| POST   | /api/employees          | Create new employee     |
-| PUT    | /api/employees/{id}     | Update employee         |
-| DELETE | /api/employees/{id}     | Delete employee         |
+| Method | Endpoint             | Controller Method  | Description          |
+|--------|----------------------|--------------------|----------------------|
+| POST   | `/api/auth/login`    | `Login()`          | Login and return JWT |
 
-## 🧠 Project Structure
+---
 
+### 🏢 DepartmentsController
+
+| Method | Endpoint                        | Controller Method         | Description                    |
+|--------|----------------------------------|----------------------------|--------------------------------|
+| GET    | `/api/departments/GetAllDepartments`       | `GetAll()`                 | Get all departments            |
+| GET    | `/api/departments/GetDepartmentById/{id}`  | `GetById(int id)`          | Get department by ID           |
+| POST   | `/api/departments/CreateDepartments`       | `CreateDepartment(dto)`    | Create a new department        |
+| PUT    | `/api/departments/UpdateDepartment/{id}`   | `UpdateDepartment(id, dto)`| Update department              |
+| DELETE | `/api/departments/DeleteDepartment/{id}`   | `DeleteDepartment(id)`     | Delete department              |
+
+---
+
+### 👨‍💼 EmployeesController
+
+| Method | Endpoint                          | Controller Method         | Description                    |
+|--------|------------------------------------|----------------------------|--------------------------------|
+| GET    | `/api/employees/GetAllEmployees`          | `GetAllEmployees()`        | Get all employees              |
+| GET    | `/api/employees/GetEmployeeById/{id}`     | `GetById(int id)`          | Get employee by ID             |
+| POST   | `/api/employees/CreateEmployee`           | `CreateEmployee(dto)`      | Create new employee            |
+| PUT    | `/api/employees/UpdateEmployee/{id}`      | `UpdateEmployee(id, dto)`  | Update employee                |
+| DELETE | `/api/employees/DeleteEmployee/{id}`      | `DeleteEmployee(id)`       | Delete employee                |
+
+## 📁 Project Structure – CompanyManagement (.NET 6 Web API)
+
+```
 CompanyManagment/
 │
-├── Controllers/
-├── Models/
-│   └── Dtos/
-├── Repositories/
+├── Controllers/                    # API Controllers
+│   ├── AuthController.cs
+│   ├── DepartmentsController.cs
+│   └── EmployeesController.cs
+│
+├── Models/                         # Database Models
+│   ├── Department.cs
+│   ├── Employee.cs
+│   └── User.cs
+│
+├── Models/Dtos/                   # Data Transfer Objects (DTOs)
+│   ├── DepartmrntDtos/
+│   │   └── CreateDepartment.cs
+│   ├── EmployeeDtos/
+│   │   ├── CreateEmployeeDto.cs
+│   │   └── EmployeeDetailsDto.cs
+│   └── UserDtos/
+│       └── LoginDto.cs
+│
+├── Repositiors/                   # Data Access Layer
+│   ├── ApplicationDbContext.cs
+│   ├── DepartmentRepository.cs
+│   ├── EmployeeRepository.cs
+│   ├── UserRepository.cs
 │   └── Interfaces/
-├── Services/
+│       ├── IDepartmentRepository.cs
+│       ├── IEmployeeRepository.cs
+│       ├── IUserRepository.cs
+│       └── IAuthService.cs
+│
+├── Services/                      # Business Logic Layer
+│   ├── DepartmentService.cs
+│   ├── EmployeeService.cs
+│   ├── AuthService.cs
 │   └── Interfaces/
-├── Program.cs
-├── appsettings.json
-└── README.md
-
+│       ├── IDepartmentService.cs
+│       └── IEmployeeService.cs
+│
+├── Migrations/                    # EF Core Migrations
+│   └── [Timestamp]_Initial.cs
+│
+├── Properties/
+│   └── launchSettings.json
+│
+├── Program.cs                     # Entry point
+├── appsettings.json               # Configuration settings
+├── CompanyManagment.csproj        # Project file
+└── CompanyManagment.sln           # Solution file
+```
+---
 ## 🙋‍♂️ Contact
 
 Developed by [Saleh Sherif](https://github.com/SALEH-SHERIF)  
