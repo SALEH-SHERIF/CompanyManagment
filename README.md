@@ -23,7 +23,13 @@ This system allows secure authentication using **JWT**, full CRUD operations, an
 - 🔸 **Authentication:** JWT (JSON Web Tokens)
 
 ---
+## 🌐 Live Demo
 
+You can try the API live via Swagger here:
+
+👉 [Live Swagger UI Demo](http://companymanagment.runasp.net/swagger/index.html)
+
+---
 ## 🗃️ Database Structure
 
 ### Department Table
