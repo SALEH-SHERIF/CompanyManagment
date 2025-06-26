@@ -1,7 +1,7 @@
 # 🏢 CompanyManagment
 
 A complete **ASP.NET Core Web API** project for managing employees and departments within a company.  
-This system allows secure authentication using **JWT**, full CRUD operations, and role-based access control.
+This system allows secure authentication using **JWT**, full CRUD operations.
 
 ---
 
