@@ -43,7 +43,7 @@ namespace CompanyManagment
 			builder.Services.AddEndpointsApiExplorer();
 
 			// ----------------------------
-			// 🔐 JWT Authentication Setup
+			//  JWT Authentication Setup
 			// ----------------------------
 			builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 				.AddJwtBearer(options =>
@@ -60,7 +60,7 @@ namespace CompanyManagment
 				});
 
 			// ----------------------------
-			// 🌐 CORS Policy
+			//  CORS Policy
 			// ----------------------------
 			builder.Services.AddCors(options =>
 			{
@@ -73,7 +73,7 @@ namespace CompanyManagment
 			});
 
 			// ----------------------------
-			// 📘 Swagger + JWT Integration
+			//  Swagger + JWT Integration
 			// ----------------------------
 			builder.Services.AddSwaggerGen(swagger =>
 			{
@@ -111,7 +111,7 @@ namespace CompanyManagment
 			});
 
 			// ----------------------------
-			// 🚀 Build & Configure App
+			//  Build & Configure App
 			// ----------------------------
 			var app = builder.Build();
 

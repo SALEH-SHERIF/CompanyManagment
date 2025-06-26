@@ -1,14 +1,13 @@
-﻿# ملفات حساسة
+﻿
 appsettings.json
 appsettings.Development.json
 
-# فولدرات مؤقتة ماينفعش تترفع
+
 bin/
 obj/
 
-# ملفات المستخدم في Visual Studio
 *.user
 *.suo
 
-# إعدادات VS Code لو بتستخدمه
+
 .vscode/
