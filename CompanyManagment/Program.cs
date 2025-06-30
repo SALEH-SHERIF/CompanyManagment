@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace CompanyManagment
 {
@@ -35,8 +36,11 @@ namespace CompanyManagment
 			builder.Services.AddScoped<IAuthService, AuthService>();
 
 
-		
 
+
+			builder.Services.AddControllers()
+	       .AddJsonOptions(x =>
+		x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 			// Controllers
 			builder.Services.AddControllers();

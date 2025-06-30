@@ -33,7 +33,7 @@ namespace CompanyManagment.Repositiors
 
 		public async Task<IEnumerable<Department>> GetAllAsync()
 		{
-			return await _context.Departments.ToListAsync();
+			return await _context.Departments.Include(d=>d.Employees).ToListAsync();
 		}
 
 		public async Task<Department?> GetByIdAsync(int id)
@@ -43,7 +43,7 @@ namespace CompanyManagment.Repositiors
 
 		public async Task<Department?> UpdateAsync(int id, Department department)
 		{
-			var existing = await _context.Departments.FindAsync(id); 
+			var existing = await _context.Departments.Include(d=>d.Employees).FirstOrDefaultAsync(d=>d.Id==id); 
 			if (existing == null) 
 				return null;
 		   existing.Description = department.Description;

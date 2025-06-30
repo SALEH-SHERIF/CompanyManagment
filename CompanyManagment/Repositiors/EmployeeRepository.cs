@@ -13,10 +13,17 @@ namespace CompanyManagment.Repositiors
         }
         public async Task<Employee> AddAsync(Employee employee)
 		{
-			   _context.Employees.Add(employee);
-			     await _context.SaveChangesAsync();
-			     return employee;
+			var existDepartment =await _context.Departments.AnyAsync(x => x.Id == employee.DepartmentId);
+			if (existDepartment)
+			{
+				 _context.Employees.Add(employee);
+				await _context.SaveChangesAsync();
+				return employee;
+			}
+			return null;
 		}
+		
+
 
 		public async Task<bool> DeleteAsync(int id)
 		{

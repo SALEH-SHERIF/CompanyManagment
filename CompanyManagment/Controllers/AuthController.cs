@@ -1,4 +1,5 @@
-﻿using CompanyManagment.Models.Dtos.UserDtos;
+﻿using CompanyManagment.Models;
+using CompanyManagment.Models.Dtos.UserDtos;
 using CompanyManagment.Repositiors.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +18,10 @@ namespace CompanyManagment.Controllers
 		[HttpPost("Login")]
 		public async Task<IActionResult>Login(LoginDto loginDto)
 		{
-			if(!ModelState.IsValid) return BadRequest(ModelState);
+			if (!ModelState.IsValid) return BadRequest(new ApiResponse<string>(false,"Invalid Request Data"));
 			var res = await _authService.LoginAsync(loginDto);
-			if(res==null) return BadRequest("Invalid Entire Data or Unotherized ");
-			return Ok("Success Login and this Token:" + res);
+			if(res==null) return BadRequest(new ApiResponse<string>(false, "Invalid credentials"));
+			return Ok( new ApiResponse<string>(true, "Login successful", res));
 		}
     }
 }

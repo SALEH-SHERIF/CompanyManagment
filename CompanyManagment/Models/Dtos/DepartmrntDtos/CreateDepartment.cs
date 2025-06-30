@@ -8,7 +8,7 @@ namespace CompanyManagment.Models.Dtos.DepartmrntDtos
 		[MaxLength(20, ErrorMessage = ("Name Must less or equal than 20 char"))]
 		public string Name { get; set; }
 		[Required(ErrorMessage = "Description Required")]
-		[MaxLength(50, ErrorMessage = "Description must less or equal from 50 char")]
+		[MaxLength(100, ErrorMessage = "Description must less or equal from 100 char")]
 		public string Description { get; set; }
 	}
 }
