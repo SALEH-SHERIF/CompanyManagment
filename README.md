@@ -209,7 +209,7 @@ CompanyManagment/
 
 ### 🧪 Test Credentials
 - UserName: admin
-- Password: Admin123!
+- Password: Admin@123
 
 
 ## 🙋‍♂️ Contact
