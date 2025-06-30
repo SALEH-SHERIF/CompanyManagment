@@ -206,6 +206,12 @@ CompanyManagment/
 └── CompanyManagment.sln           # Solution file
 ```
 ---
+
+### 🧪 Test Credentials
+- UserName: admin
+- Password: Admin123!
+
+
 ## 🙋‍♂️ Contact
 
 Developed by [Saleh Sherif](https://github.com/SALEH-SHERIF)  
